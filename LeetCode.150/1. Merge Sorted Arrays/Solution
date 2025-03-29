@@ -1,0 +1,20 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int k = m + n - 1;
+
+        //why j? because j is pointing to the smaller array i.e. nums2
+        m--;
+        n--;
+        while (n >= 0) {
+            if (m >= 0 && nums1[m] > nums2[n]) {
+                //if element in nums1 is bigger than element in nums2
+                //store the element of nums1 into k'th position and move i to left
+                nums1[k--] = nums1[m--];
+            } else {
+                //if element in nums2 is bigger than element in nums1
+                //store the element of nums2 into k'th position and move j to left
+                nums1[k--] = nums2[n--];
+            }
+        }
+    }
+}
